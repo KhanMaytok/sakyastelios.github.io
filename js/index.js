@@ -55,13 +55,13 @@
             var j, len, results;
             results = [];
             for (j = 0, len = glitchCharacters.length; j < len; j++) {
-                if (window.CP.shouldStopExecution(1)) {
-                    break;
-                }
+                //if (window.CP.shouldStopExecution(1)) {
+                //    break;
+                //}
                 letter = glitchCharacters[j];
                 results.push(wrap(letter, 'glitch'));
             }
-            window.CP.exitedLoop(1);
+            //window.CP.exitedLoop(1);
             return results;
         }();
         ghostText = $element.text();
@@ -71,13 +71,13 @@
             var j, len, results;
             results = [];
             for (j = 0, len = ghostCharacters.length; j < len; j++) {
-                if (window.CP.shouldStopExecution(2)) {
-                    break;
-                }
+                //if (window.CP.shouldStopExecution(2)) {
+                //    break;
+                //}
                 letter = ghostCharacters[j];
                 results.push(wrap(letter, 'ghost'));
             }
-            window.CP.exitedLoop(2);
+            //window.CP.exitedLoop(2);
             return results;
         }();
         textCharacters = text.split('');
@@ -85,19 +85,19 @@
         order = function () {
             results = [];
             for (var j = 0; 0 <= textLength ? j < textLength : j > textLength; 0 <= textLength ? j++ : j--) {
-                if (window.CP.shouldStopExecution(3)) {
-                    break;
-                }
+                //if (window.CP.shouldStopExecution(3)) {
+                //    break;
+                //}
                 results.push(j);
             }
-            window.CP.exitedLoop(3);
+            //window.CP.exitedLoop(3);
             return results;
         }.apply(this).sort(this.shuffle);
         output = [];
         for (i = k = 0, ref = textLength; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
-            if (window.CP.shouldStopExecution(4)) {
-                break;
-            }
+            //if (window.CP.shouldStopExecution(4)) {
+            //    break;
+            //}
             glitchIndex = Math.floor(Math.random() * (glitchLength - 1));
             glitchCharacter = glitches[glitchIndex];
             ghostCharacter = ghosts[i] || settings.blank;
@@ -105,7 +105,7 @@
             character = addGlitch ? glitchCharacter : ghostCharacter;
             output.push(character);
         }
-        window.CP.exitedLoop(4);
+        //window.CP.exitedLoop(4);
         object = { value: 0 };
         target = { value: 1 };
         parameters = {
@@ -115,13 +115,13 @@
                 var index, l, progress, ref1;
                 progress = Math.floor(object.value * (textLength - 1));
                 for (i = l = 0, ref1 = progress; 0 <= ref1 ? l <= ref1 : l >= ref1; i = 0 <= ref1 ? ++l : --l) {
-                    if (window.CP.shouldStopExecution(5)) {
-                        break;
-                    }
+                    //if (window.CP.shouldStopExecution(5)) {
+                    //    break;
+                    //}
                     index = order[i];
                     output[index] = textCharacters[index];
                 }
-                window.CP.exitedLoop(5);
+                //window.CP.exitedLoop(5);
                 return $element.html(output.join(''));
             },
             complete: function () {
@@ -133,28 +133,28 @@
     animate = function () {
         var data, element, index, j, len, options;
         for (index = j = 0, len = MESSAGES.length; j < len; index = ++j) {
-            if (window.CP.shouldStopExecution(6)) {
-                break;
-            }
+            //if (window.CP.shouldStopExecution(6)) {
+            //    break;
+            //}
             data = MESSAGES[index];
             element = $paragraph.get(index);
             element.innerText = '';
             options = { delay: data.delay };
             scramble(element, data.text, options);
         }
-        window.CP.exitedLoop(6);
+        //window.CP.exitedLoop(6);
     };
     initialise = function () {
         var index, j, len, text;
         $animate.click(animate);
         for (index = j = 0, len = MESSAGES.length; j < len; index = ++j) {
-            if (window.CP.shouldStopExecution(7)) {
-                break;
-            }
+            //if (window.CP.shouldStopExecution(7)) {
+            //    break;
+            //}
             text = MESSAGES[index];
             $message.append('<p>');
         }
-        window.CP.exitedLoop(7);
+        //window.CP.exitedLoop(7);
         $paragraph = $container.find('p');
         animate();
     };
